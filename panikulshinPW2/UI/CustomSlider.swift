@@ -8,6 +8,13 @@
 import UIKit
 
 final class CustomSlider: UIView {
+    enum Constraints {
+        static let titleTop: CGFloat = 10
+        static let titleLeading: CGFloat = 20
+        static let sliderBottom: CGFloat = -10
+        static let sliderLeading: CGFloat = 20
+    }
+    
     var valueChanged: ((Double) -> Void)?
     
     let titleView = UILabel()
@@ -41,13 +48,13 @@ final class CustomSlider: UIView {
         
         NSLayoutConstraint.activate([
             titleView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            titleView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            titleView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            titleView.topAnchor.constraint(equalTo: topAnchor, constant: Constraints.titleTop),
+            titleView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constraints.titleLeading),
             
             slider.topAnchor.constraint(equalTo: titleView.bottomAnchor),
             slider.centerXAnchor.constraint(equalTo: centerXAnchor),
-            slider.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            slider.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
+            slider.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Constraints.sliderBottom),
+            slider.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constraints.sliderLeading)
         ])
     }
     
