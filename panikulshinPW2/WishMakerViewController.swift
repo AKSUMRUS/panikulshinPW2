@@ -19,7 +19,7 @@ final class WishMakerViewController: UIViewController {
         static let leading: CGFloat = 20
         
         static let stackRadius: CGFloat = 20
-        static let stackBottom: CGFloat = -100
+        static let stackBottom: CGFloat = -60
         
         static let titleText: String = "WishMaker"
         static let titleTop: CGFloat = 30
@@ -31,6 +31,11 @@ final class WishMakerViewController: UIViewController {
         static let buttonActive: String = "Hide"
         static let buttonDisabled: String = "Show"
         static let buttonRandomColor: String = "Random color"
+        
+        static let wishButtonText: String = "My wishes"
+        static let wishButtonHeight: Double = 40
+        static let wishButtonBottom: CGFloat = -20
+        static let wishButtonRadius: CGFloat = 15
     }
     
     private var backgroundRed: CGFloat = 0
@@ -40,9 +45,10 @@ final class WishMakerViewController: UIViewController {
     private let stack: UIStackView = UIStackView()
     private let button: CustomButton = CustomButton(activeText: Constants.buttonActive, disabledText: Constants.buttonDisabled)
     private let redSlider = CustomSlider(title: Constants.red, min: Constants.sliderMin, max: Constants.sliderMax)
-    private let bludeSlider = CustomSlider(title: Constants.blue, min: Constants.sliderMin, max: Constants.sliderMax)
+    private let blueSlider = CustomSlider(title: Constants.blue, min: Constants.sliderMin, max: Constants.sliderMax)
     private let greenSlider = CustomSlider(title: Constants.green, min: Constants.sliderMin, max: Constants.sliderMax)
-    
+    private let addWishButton: UIButton = UIButton(type: .system)
+    private let buttonRandom = CustomButton(title: Constants.buttonRandomColor)
     private func configureUI() {
         view.backgroundColor = .black
         
@@ -105,6 +111,7 @@ final class WishMakerViewController: UIViewController {
         
         configureSliders()
         configureRandom()
+        configureAddWishButton()
     }
     
     private func configureButton() {
@@ -133,7 +140,7 @@ final class WishMakerViewController: UIViewController {
     
     private func configureSliders() {
         
-        for slider in [redSlider, bludeSlider, greenSlider] {
+        for slider in [redSlider, blueSlider, greenSlider] {
             stack.addArrangedSubview(slider)
         }
         
@@ -145,15 +152,28 @@ final class WishMakerViewController: UIViewController {
             self?.backgroundGreen = value
             self?.changeBackground()
         }
-        bludeSlider.valueChanged = { [weak self] value in
+        blueSlider.valueChanged = { [weak self] value in
             self?.backgroundBlue = value
             self?.changeBackground()
         }
     }
     
-    private func configureRandom() {
-        let buttonRandom = CustomButton(title: Constants.buttonRandomColor)
+    private func configureAddWishButton() {
+        stack.addArrangedSubview(addWishButton)
+        addWishButton.setHeight(Constants.wishButtonHeight)
         
+        addWishButton.backgroundColor = .white
+        addWishButton.setTitleColor(.black, for: .normal)
+        addWishButton.setTitle(Constants.wishButtonText, for: .normal)
+        addWishButton.addTarget(self, action: #selector(addWishButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc
+    private func addWishButtonPressed() {
+        
+    }
+    
+    private func configureRandom() {
         stack.addArrangedSubview(buttonRandom)
         
         buttonRandom.buttonPressed = { [weak self] val in
@@ -174,6 +194,6 @@ final class WishMakerViewController: UIViewController {
     private func changeSliders() {
         redSlider.slider.value = Float(backgroundRed)
         greenSlider.slider.value = Float(backgroundGreen)
-        bludeSlider.slider.value = Float(backgroundBlue)
+        blueSlider.slider.value = Float(backgroundBlue)
     }
 }
