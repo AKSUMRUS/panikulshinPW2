@@ -82,7 +82,11 @@ extension WishStoringViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if(indexPath.section == 0) {
-            return AddWishCell()
+            let addCell = AddWishCell()
+            
+            addCell.addWish = addWish
+            
+            return addCell
         } else {
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: WrittenWishCell.reuseId,
@@ -99,5 +103,10 @@ extension WishStoringViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return Constants.numberOfSections
+    }
+    
+    private func addWish(text: String) {
+        wishArray.append(text)
+        table.reloadData()
     }
 }
