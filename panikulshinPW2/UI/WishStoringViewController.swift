@@ -101,7 +101,9 @@ extension WishStoringViewController: UITableViewDataSource {
             
             guard let wishCell = cell as? WrittenWishCell else { return cell }
             
-            wishCell.configure(with: wishArray[indexPath.row])
+            wishCell.configure(wish: wishArray[indexPath.row], position: indexPath.row)
+            
+            wishCell.deleteWish = deleteWish
             
             return wishCell
         }
@@ -113,6 +115,12 @@ extension WishStoringViewController: UITableViewDataSource {
     
     private func addWish(text: String) {
         wishArray.append(text)
+        table.reloadData()
+        defaults.set(wishArray, forKey: Constants.wishesKey)
+    }
+    
+    private func deleteWish(id: Int) {
+        wishArray.remove(at: id)
         table.reloadData()
         defaults.set(wishArray, forKey: Constants.wishesKey)
     }
