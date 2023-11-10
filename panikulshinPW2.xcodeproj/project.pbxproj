@@ -19,6 +19,7 @@
 		B95306F02ACF77400028953C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95306EF2ACF77400028953C /* CustomButton.swift */; };
 		B9F958B32AFED01900ACC26F /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F958B22AFED01900ACC26F /* Pin.swift */; };
 		B9F958B52AFED5F300ACC26F /* WishStoringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F958B42AFED5F300ACC26F /* WishStoringViewController.swift */; };
+		B9F958B72AFEDC8500ACC26F /* WrittenWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F958B62AFEDC8500ACC26F /* WrittenWishCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		B95306EF2ACF77400028953C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		B9F958B22AFED01900ACC26F /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		B9F958B42AFED5F300ACC26F /* WishStoringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStoringViewController.swift; sourceTree = "<group>"; };
+		B9F958B62AFEDC8500ACC26F /* WrittenWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrittenWishCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				B900067E2ACCAA28007EDB24 /* CustomSlider.swift */,
 				B95306EF2ACF77400028953C /* CustomButton.swift */,
 				B9F958B42AFED5F300ACC26F /* WishStoringViewController.swift */,
+				B9F958B62AFEDC8500ACC26F /* WrittenWishCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9F958B72AFEDC8500ACC26F /* WrittenWishCell.swift in Sources */,
 				B900064C2ACC9CE3007EDB24 /* AppDelegate.swift in Sources */,
 				B900064E2ACC9CE3007EDB24 /* SceneDelegate.swift in Sources */,
 				B900067C2ACCA18C007EDB24 /* WishMakerViewController.swift in Sources */,

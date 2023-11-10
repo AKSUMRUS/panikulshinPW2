@@ -9,6 +9,8 @@ import UIKit
 
 final class WishStoringViewController: UIViewController {
     
+    private var wishArray: [String] = ["I wish to add cells to the table"]
+    
     private let table: UITableView = UITableView(frame: .zero)
     
     enum Constants {
@@ -53,20 +55,32 @@ final class WishStoringViewController: UIViewController {
         table.separatorStyle = .none
         table.layer.cornerRadius = Constants.tableRadius
         
-        table.setWidth(100) // just for test
-        table.setHeight(100) // just for test
         table.pinCenterX(to: view)
+        table.pinLeft(to: view, Constants.tableOffset)
+        table.pinRight(to: view, Constants.tableOffset)
+        table.pinBottom(to: view.bottomAnchor, Constants.tableOffset)
         table.pinTop(to: view.topAnchor, Constants.tableOffset)
+        
+        table.register(WrittenWishCell.self, forCellReuseIdentifier: WrittenWishCell.reuseId)
     }
 }
 
 // MARK: - UITableViewDataSource
 extension WishStoringViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return wishArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: WrittenWishCell.reuseId,
+            for: indexPath
+        )
+        
+        guard let wishCell = cell as? WrittenWishCell else { return cell }
+        
+        wishCell.configure(with: wishArray[indexPath.row])
+        
+        return wishCell
     }
 }
