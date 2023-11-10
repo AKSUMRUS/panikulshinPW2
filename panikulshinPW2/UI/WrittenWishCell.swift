@@ -14,13 +14,16 @@ final class WrittenWishCell: UITableViewCell {
     private let text: UITextView = UITextView()
     
     private let buttonDelete: UIButton = UIButton(type: .system)
+    private let buttonEdit: UIButton = UIButton(type: .system)
     
     var position: Int?
     
     var deleteWish: ((Int) -> ())?
+    var editWish: ((String, Int) -> ())?
     
     private enum Constants {
         static let buttonDeleteText: String = "D"
+        static let buttonEditText: String = "E"
         static let offset: CGFloat = 10
     }
     
@@ -42,7 +45,8 @@ final class WrittenWishCell: UITableViewCell {
         selectionStyle = .none
         backgroundColor = .clear
          
-        configureButton()
+        configureButtonDelete()
+        configureButtonEdit()
         configureText()
     }
     
@@ -51,13 +55,13 @@ final class WrittenWishCell: UITableViewCell {
         text.backgroundColor = .systemRed
         text.pinCenterY(to: contentView)
         text.pinLeft(to: contentView.leadingAnchor, Constants.offset)
-        text.pinRight(to: buttonDelete.leadingAnchor, Constants.offset)
+        text.pinRight(to: buttonEdit.leadingAnchor, Constants.offset)
         text.pinTop(to: contentView.topAnchor)
         text.pinBottom(to: contentView.bottomAnchor)
         text.isEditable = true
     }
     
-    private func configureButton() {
+    private func configureButtonDelete() {
         contentView.addSubview(buttonDelete)
         buttonDelete.setTitle(Constants.buttonDeleteText, for: .normal)
         buttonDelete.setTitleColor(.white, for: .normal)
@@ -66,10 +70,27 @@ final class WrittenWishCell: UITableViewCell {
         buttonDelete.addTarget(self, action: #selector(buttorPressed), for: .touchUpInside)
     }
     
+    private func configureButtonEdit() {
+        contentView.addSubview(buttonEdit)
+        buttonEdit.setTitle(Constants.buttonEditText, for: .normal)
+        buttonEdit.setTitleColor(.white, for: .normal)
+        buttonEdit.pinCenterY(to: contentView)
+        buttonEdit.pinLeft(to: buttonDelete.leadingAnchor, Constants.offset)
+        buttonEdit.addTarget(self, action: #selector(buttorEditPressed), for: .touchUpInside)
+    }
+    
     @objc
     private func buttorPressed() {
         if(deleteWish != nil && position != nil) {
             deleteWish!(position!)
+        }
+    }
+    
+    @objc
+    private func buttorEditPressed() {
+        if(editWish != nil && position != nil) {
+            editWish!(text.text, position!)
+            
         }
     }
 

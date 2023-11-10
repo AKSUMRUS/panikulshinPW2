@@ -105,6 +105,8 @@ extension WishStoringViewController: UITableViewDataSource {
             
             wishCell.deleteWish = deleteWish
             
+            wishCell.editWish = editWish
+            
             return wishCell
         }
     }
@@ -115,6 +117,12 @@ extension WishStoringViewController: UITableViewDataSource {
     
     private func addWish(text: String) {
         wishArray.append(text)
+        table.reloadData()
+        defaults.set(wishArray, forKey: Constants.wishesKey)
+    }
+    
+    private func editWish(text: String, id: Int) {
+        wishArray[id] = text
         table.reloadData()
         defaults.set(wishArray, forKey: Constants.wishesKey)
     }
