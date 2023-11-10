@@ -9,7 +9,9 @@ import UIKit
 
 final class WishStoringViewController: UIViewController {
     
-    private var wishArray: [String] = ["I wish to add cells to the table"]
+    private let defaults = UserDefaults.standard
+    
+    private var wishArray: [String] = [String]()
     
     private let table: UITableView = UITableView(frame: .zero)
     
@@ -22,9 +24,13 @@ final class WishStoringViewController: UIViewController {
         static let tableOffset: CGFloat = 20
         static let tableRadius: CGFloat = 15
         static let numberOfSections: Int = 2
+        static let wishesKey: String = "wishes"
     }
     
     override func viewDidLoad() {
+        if(defaults.array(forKey: Constants.wishesKey) as? [String] != nil) {
+            wishArray = (defaults.array(forKey: Constants.wishesKey) as? [String])!
+        }
         configureUI()
      }
     
@@ -108,5 +114,6 @@ extension WishStoringViewController: UITableViewDataSource {
     private func addWish(text: String) {
         wishArray.append(text)
         table.reloadData()
+        defaults.set(wishArray, forKey: Constants.wishesKey)
     }
 }
