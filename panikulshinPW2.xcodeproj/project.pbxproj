@@ -18,6 +18,7 @@
 		B900067F2ACCAA28007EDB24 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900067E2ACCAA28007EDB24 /* CustomSlider.swift */; };
 		B95306F02ACF77400028953C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95306EF2ACF77400028953C /* CustomButton.swift */; };
 		B9F958B32AFED01900ACC26F /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F958B22AFED01900ACC26F /* Pin.swift */; };
+		B9F958B52AFED5F300ACC26F /* WishStoringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F958B42AFED5F300ACC26F /* WishStoringViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		B900067E2ACCAA28007EDB24 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		B95306EF2ACF77400028953C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		B9F958B22AFED01900ACC26F /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
+		B9F958B42AFED5F300ACC26F /* WishStoringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStoringViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			children = (
 				B900067E2ACCAA28007EDB24 /* CustomSlider.swift */,
 				B95306EF2ACF77400028953C /* CustomButton.swift */,
+				B9F958B42AFED5F300ACC26F /* WishStoringViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				B900067C2ACCA18C007EDB24 /* WishMakerViewController.swift in Sources */,
 				B9F958B32AFED01900ACC26F /* Pin.swift in Sources */,
 				B900067F2ACCAA28007EDB24 /* CustomSlider.swift in Sources */,
+				B9F958B52AFED5F300ACC26F /* WishStoringViewController.swift in Sources */,
 				B95306F02ACF77400028953C /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
