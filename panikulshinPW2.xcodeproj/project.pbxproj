@@ -20,6 +20,7 @@
 		B9F958B32AFED01900ACC26F /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F958B22AFED01900ACC26F /* Pin.swift */; };
 		B9F958B52AFED5F300ACC26F /* WishStoringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F958B42AFED5F300ACC26F /* WishStoringViewController.swift */; };
 		B9F958B72AFEDC8500ACC26F /* WrittenWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F958B62AFEDC8500ACC26F /* WrittenWishCell.swift */; };
+		B9F958B92AFEE2DD00ACC26F /* AddWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F958B82AFEE2DD00ACC26F /* AddWishCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		B9F958B22AFED01900ACC26F /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		B9F958B42AFED5F300ACC26F /* WishStoringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStoringViewController.swift; sourceTree = "<group>"; };
 		B9F958B62AFEDC8500ACC26F /* WrittenWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrittenWishCell.swift; sourceTree = "<group>"; };
+		B9F958B82AFEE2DD00ACC26F /* AddWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWishCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 				B95306EF2ACF77400028953C /* CustomButton.swift */,
 				B9F958B42AFED5F300ACC26F /* WishStoringViewController.swift */,
 				B9F958B62AFEDC8500ACC26F /* WrittenWishCell.swift */,
+				B9F958B82AFEE2DD00ACC26F /* AddWishCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				B900067F2ACCAA28007EDB24 /* CustomSlider.swift in Sources */,
 				B9F958B52AFED5F300ACC26F /* WishStoringViewController.swift in Sources */,
 				B95306F02ACF77400028953C /* CustomButton.swift in Sources */,
+				B9F958B92AFEE2DD00ACC26F /* AddWishCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

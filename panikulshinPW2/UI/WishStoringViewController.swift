@@ -21,6 +21,7 @@ final class WishStoringViewController: UIViewController {
         
         static let tableOffset: CGFloat = 20
         static let tableRadius: CGFloat = 15
+        static let numberOfSections: Int = 2
     }
     
     override func viewDidLoad() {
@@ -67,20 +68,36 @@ final class WishStoringViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 extension WishStoringViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wishArray.count
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
+        if(section == 0) {
+            return 1
+        } else {
+            return wishArray.count
+        }
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: WrittenWishCell.reuseId,
-            for: indexPath
-        )
-        
-        guard let wishCell = cell as? WrittenWishCell else { return cell }
-        
-        wishCell.configure(with: wishArray[indexPath.row])
-        
-        return wishCell
+        if(indexPath.section == 0) {
+            return AddWishCell()
+        } else {
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: WrittenWishCell.reuseId,
+                for: indexPath
+            )
+            
+            guard let wishCell = cell as? WrittenWishCell else { return cell }
+            
+            wishCell.configure(with: wishArray[indexPath.row])
+            
+            return wishCell
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return Constants.numberOfSections
     }
 }
