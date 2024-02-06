@@ -219,7 +219,7 @@ final class WishMakerViewController: UIViewController {
             button.setTitleColor(color, for: .normal)
         }
         
-        view.backgroundColor = color
+        self.view.backgroundColor = color
     }
     
     private func changeSliders() {
