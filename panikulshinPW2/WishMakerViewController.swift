@@ -181,6 +181,7 @@ final class WishMakerViewController: UIViewController {
         }
         
         scheduleWishButton.setTitle(Constants.scheduleWishButtonText, for: .normal)
+        scheduleWishButton.addTarget(self, action: #selector(scheduleWishButtonPressed), for: .touchUpInside)
         
         addWishButton.setTitle(Constants.wishButtonText, for: .normal)
         addWishButton.addTarget(self, action: #selector(addWishButtonPressed), for: .touchUpInside)
@@ -189,6 +190,12 @@ final class WishMakerViewController: UIViewController {
     @objc
     private func addWishButtonPressed() {
         present(WishStoringViewController(), animated: true)
+    }
+    
+    @objc
+    private func scheduleWishButtonPressed() {
+        let vc = WishCalendarViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     private func configureRandom() {
