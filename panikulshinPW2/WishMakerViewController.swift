@@ -32,15 +32,30 @@ final class WishMakerViewController: UIViewController {
         static let buttonDisabled: String = "Show"
         static let buttonRandomColor: String = "Random color"
         
+        static let scheduleWishButtonText: String = "Schedule wish granting"
         static let wishButtonText: String = "My wishes"
         static let wishButtonHeight: Double = 40
         static let wishButtonBottom: CGFloat = -20
         static let wishButtonRadius: CGFloat = 15
     }
     
-    private var backgroundRed: CGFloat = 0
-    private var backgroundGreen: CGFloat = 0
-    private var backgroundBlue: CGFloat = 0
+    private var backgroundRed: CGFloat = 0 {
+        didSet {
+            changeBackground()
+        }
+    }
+    
+    private var backgroundGreen: CGFloat = 0 {
+        didSet {
+            changeBackground()
+        }
+    }
+    
+    private var backgroundBlue: CGFloat = 0 {
+        didSet {
+            changeBackground()
+        }
+    }
     
     private let stack: UIStackView = UIStackView()
     private let button: CustomButton = CustomButton(activeText: Constants.buttonActive, disabledText: Constants.buttonDisabled)
@@ -48,8 +63,8 @@ final class WishMakerViewController: UIViewController {
     private let blueSlider = CustomSlider(title: Constants.blue, min: Constants.sliderMin, max: Constants.sliderMax)
     private let greenSlider = CustomSlider(title: Constants.green, min: Constants.sliderMin, max: Constants.sliderMax)
     private let addWishButton: UIButton = UIButton(type: .system)
-    private let scheduleWishesButton: UIButton = UIButton(type: .system)
-    private let buttonRandom = CustomButton(title: Constants.buttonRandomColor)
+    private let scheduleWishButton: UIButton = UIButton(type: .system)
+    private let randomButton = CustomButton(title: Constants.buttonRandomColor)
     
     private func configureUI() {
         view.backgroundColor = .black
@@ -148,26 +163,25 @@ final class WishMakerViewController: UIViewController {
         
         redSlider.valueChanged = { [weak self] value in
             self?.backgroundRed = value
-            self?.changeBackground()
         }
         greenSlider.valueChanged = { [weak self] value in
             self?.backgroundGreen = value
-            self?.changeBackground()
         }
         blueSlider.valueChanged = { [weak self] value in
             self?.backgroundBlue = value
-            self?.changeBackground()
         }
     }
     
     private func configureAddWishButtons() {
-        for button in [addWishButton, scheduleWishesButton] {
+        for button in [addWishButton, scheduleWishButton] {
             stack.addArrangedSubview(button)
+            button.backgroundColor = .white
+            button.setTitleColor(.black, for: .normal)
+            button.setHeight(Constants.wishButtonHeight)
         }
-        addWishButton.setHeight(Constants.wishButtonHeight)
         
-        addWishButton.backgroundColor = .white
-        addWishButton.setTitleColor(.black, for: .normal)
+        scheduleWishButton.setTitle(Constants.scheduleWishButtonText, for: .normal)
+        
         addWishButton.setTitle(Constants.wishButtonText, for: .normal)
         addWishButton.addTarget(self, action: #selector(addWishButtonPressed), for: .touchUpInside)
     }
@@ -178,9 +192,9 @@ final class WishMakerViewController: UIViewController {
     }
     
     private func configureRandom() {
-        stack.addArrangedSubview(buttonRandom)
+        stack.addArrangedSubview(randomButton)
         
-        buttonRandom.buttonPressed = { [weak self] val in
+        randomButton.buttonPressed = { [weak self] val in
             self?.backgroundRed = .random(in: 0...1)
             self?.backgroundGreen = .random(in: 0...1)
             self?.backgroundBlue = .random(in: 0...1)
@@ -193,6 +207,11 @@ final class WishMakerViewController: UIViewController {
     
     private func changeBackground() {
         let color = UIColor(red: backgroundRed, green: backgroundGreen, blue: backgroundBlue, alpha: 1)
+        
+        for button in [addWishButton, scheduleWishButton, randomButton] {
+            button.setTitleColor(color, for: .normal)
+        }
+        
         view.backgroundColor = color
     }
     
