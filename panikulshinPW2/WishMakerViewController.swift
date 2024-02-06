@@ -48,6 +48,7 @@ final class WishMakerViewController: UIViewController {
     private let blueSlider = CustomSlider(title: Constants.blue, min: Constants.sliderMin, max: Constants.sliderMax)
     private let greenSlider = CustomSlider(title: Constants.green, min: Constants.sliderMin, max: Constants.sliderMax)
     private let addWishButton: UIButton = UIButton(type: .system)
+    private let scheduleWishesButton: UIButton = UIButton(type: .system)
     private let buttonRandom = CustomButton(title: Constants.buttonRandomColor)
     
     private func configureUI() {
@@ -112,7 +113,7 @@ final class WishMakerViewController: UIViewController {
         
         configureSliders()
         configureRandom()
-        configureAddWishButton()
+        configureAddWishButtons()
     }
     
     private func configureButton() {
@@ -159,8 +160,10 @@ final class WishMakerViewController: UIViewController {
         }
     }
     
-    private func configureAddWishButton() {
-        stack.addArrangedSubview(addWishButton)
+    private func configureAddWishButtons() {
+        for button in [addWishButton, scheduleWishesButton] {
+            stack.addArrangedSubview(button)
+        }
         addWishButton.setHeight(Constants.wishButtonHeight)
         
         addWishButton.backgroundColor = .white
@@ -189,7 +192,8 @@ final class WishMakerViewController: UIViewController {
     }
     
     private func changeBackground() {
-        view.backgroundColor = UIColor(red: backgroundRed, green: backgroundGreen, blue: backgroundBlue, alpha: 1)
+        let color = UIColor(red: backgroundRed, green: backgroundGreen, blue: backgroundBlue, alpha: 1)
+        view.backgroundColor = color
     }
     
     private func changeSliders() {
