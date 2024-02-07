@@ -7,18 +7,35 @@
 
 import UIKit
 
+
 final class WishCalendarViewController: UIViewController {
+    
+    private let defaults = UserDefaults.standard
     
     enum Constants {
         static let contentInset: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         static let collectionTop: CGFloat = 15
         
-        static let collectionHeight: Double = 1200
         static let collectionWidht: Double = 500
+        
+        static let addButtonTitle: String = "Add"
+        static let addButtonBottom: CGFloat = 15
+        static let addButtonHeight: Double = 40
+        
+        static let eventsKey: String = "events"
+    }
+    
+    func getEventsData() -> [WishEventModel]? {
+        if let data = defaults.value(forKey: Constants.eventsKey) as? Data {
+            return try? PropertyListDecoder().decode(Array<WishEventModel>.self, from: data)
+        }
+        return nil
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.reloadData()
         
         configureUI()
     }
@@ -28,17 +45,21 @@ final class WishCalendarViewController: UIViewController {
         collectionViewLayout: UICollectionViewFlowLayout()
     )
     
+    private let addButton: UIButton = UIButton()
+    
     private func configureUI() {
+        view.backgroundColor = .black
+        
         configureCollection()
+        configureAddButton()
     }
     
     private func configureCollection() {
         collectionView.setWidth(Constants.collectionWidht)
-        collectionView.setHeight(Constants.collectionHeight)
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .black
         collectionView.alwaysBounceVertical = true
         collectionView.showsVerticalScrollIndicator = false
         collectionView.contentInset = Constants.contentInset
@@ -63,6 +84,23 @@ final class WishCalendarViewController: UIViewController {
         collectionView.pinTop(to: view.safeAreaLayoutGuide.topAnchor, Constants.collectionTop)
     }
     
+    private func configureAddButton() {
+        addButton.setTitle(Constants.addButtonTitle, for: .normal)
+        addButton.addTarget(self, action: #selector(addEvent), for: .touchUpInside)
+        
+        view.addSubview(addButton)
+        
+        addButton.pinCenterX(to: view)
+        addButton.setHeight(Constants.addButtonHeight)
+        addButton.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, Constants.addButtonBottom)
+        
+    }
+    
+    @objc
+    private func addEvent() {
+        present(WishEventCreationView(), animated: true)
+    }
+    
 }
 
 // MARK: - UICollectionViewDataSource
@@ -71,7 +109,7 @@ extension WishCalendarViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return 10
+        return getEventsData()!.count
     }
     
     func collectionView(
@@ -85,12 +123,7 @@ extension WishCalendarViewController: UICollectionViewDataSource {
         }
         
         wishEventCell.configure(
-            with: WishEventModel(
-                title: "Test",
-                description: "Test description",
-                startDate: "Start date",
-                endDate: "End date"
-            )
+            with: getEventsData()![indexPath.row]
         )
         
         return cell

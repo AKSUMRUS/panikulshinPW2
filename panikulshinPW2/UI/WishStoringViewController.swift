@@ -35,7 +35,7 @@ final class WishStoringViewController: UIViewController {
      }
     
     private func configureUI() {
-        view.backgroundColor = .blue
+        view.backgroundColor = .black
         
         configureLine()
         configureTable()
