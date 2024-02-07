@@ -144,6 +144,13 @@ final class WishEventCreationView: UIViewController {
         ) {
             let event = WishEventModel(title: titleText.text, description: descriptionText.text, startDate: startDateText.text, endDate: endDateText.text)
             eventsArray.append(event)
+            CalendarManager().create(
+                eventModel: CalendarEventModel(
+                    title: titleText.text,
+                    startDate: DateFormatter().date(from: startDateText.text!)!,
+                    endDate: DateFormatter().date(from: startDateText.text!)!
+                )
+            )
             saveEventsData(events: eventsArray)
             dismiss(animated: true)
         }

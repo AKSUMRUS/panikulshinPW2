@@ -21,6 +21,7 @@
 		B9C86E402B72F5B800643ABC /* WishEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C86E3F2B72F5B800643ABC /* WishEventCell.swift */; };
 		B9C86E432B72F72800643ABC /* WishEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C86E422B72F72800643ABC /* WishEventModel.swift */; };
 		B9C86E452B7300C900643ABC /* WishEventCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C86E442B7300C900643ABC /* WishEventCreationView.swift */; };
+		B9C86E492B73180F00643ABC /* CalendarEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C86E482B73180F00643ABC /* CalendarEventManager.swift */; };
 		B9F958B32AFED01900ACC26F /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F958B22AFED01900ACC26F /* Pin.swift */; };
 		B9F958B52AFED5F300ACC26F /* WishStoringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F958B42AFED5F300ACC26F /* WishStoringViewController.swift */; };
 		B9F958B72AFEDC8500ACC26F /* WrittenWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F958B62AFEDC8500ACC26F /* WrittenWishCell.swift */; };
@@ -63,6 +64,7 @@
 		B9C86E3F2B72F5B800643ABC /* WishEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishEventCell.swift; sourceTree = "<group>"; };
 		B9C86E422B72F72800643ABC /* WishEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishEventModel.swift; sourceTree = "<group>"; };
 		B9C86E442B7300C900643ABC /* WishEventCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishEventCreationView.swift; sourceTree = "<group>"; };
+		B9C86E482B73180F00643ABC /* CalendarEventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEventManager.swift; sourceTree = "<group>"; };
 		B9F958B22AFED01900ACC26F /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		B9F958B42AFED5F300ACC26F /* WishStoringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStoringViewController.swift; sourceTree = "<group>"; };
 		B9F958B62AFEDC8500ACC26F /* WrittenWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrittenWishCell.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				B9F958B22AFED01900ACC26F /* Pin.swift */,
 				B9C86E3D2B72F00F00643ABC /* WishCalendarViewController.swift */,
 				B9C86E422B72F72800643ABC /* WishEventModel.swift */,
+				B9C86E482B73180F00643ABC /* CalendarEventManager.swift */,
 			);
 			path = panikulshinPW2;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				B9F958B52AFED5F300ACC26F /* WishStoringViewController.swift in Sources */,
 				B9C86E432B72F72800643ABC /* WishEventModel.swift in Sources */,
 				B95306F02ACF77400028953C /* CustomButton.swift in Sources */,
+				B9C86E492B73180F00643ABC /* CalendarEventManager.swift in Sources */,
 				B9F958B92AFEE2DD00ACC26F /* AddWishCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
